@@ -16,7 +16,7 @@
 			<td><a data-toggle="collapse" data-parent="#accordion" href="#{$vo.id}">隐藏/显示</a></td>
 			<td>
 				<a href="{:U('Admin/Intro/edit/id/'.$vo['id'])}" style="text-decoration:none"><span style="text-align:center;color:red">编辑</span></a>
-				<a href="{:U('Admin/Intro/delete/id/'.$vo['id'])}" style="text-decoration:none"><span style="text-align:center;color:red">删除</span></a>
+				<!-- <a href="{:U('Admin/Intro/delete/id/'.$vo['id'])}" style="text-decoration:none"><span style="text-align:center;color:red">删除</span></a> -->
 			</td>
 		</tr>
 		<tr id="{$vo.id}" class="panel-collapse collapse">
@@ -25,7 +25,7 @@
 
 	</foreach>
 	</table>
-	<a class="btn btn-success btn-lg btn-block" href="{:U('Admin/Intro/add')}" role="button">添加</a>
+	<!-- <a class="btn btn-success btn-lg btn-block" href="{:U('Admin/Intro/add')}" role="button">添加</a> -->
 </div>
 
 

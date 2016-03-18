@@ -4,10 +4,10 @@
 <head>
     <title>HelloWorld后台管理系统</title>
     <meta charset="utf-8">
-    <script src="/hw/Public/Admin/js/jquery.min.js"></script>
-    <script src="/hw/Public/Admin/js/bootstrap.min.js"></script>
-    <link href="/hw/Public/Admin/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/hw/Public/Admin/css/index.css">
+    <script src="/Public/Admin/js/jquery.min.js"></script>
+    <script src="/Public/Admin/js/bootstrap.min.js"></script>
+    <link href="/Public/Admin/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/Public/Admin/css/index.css">
 </head>
 
 <body>
@@ -16,12 +16,20 @@
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
                     <a class="navbar-brand" href="<?php echo U('admin/index/index');?>">
                         HelloWorld后台管理系统
                     </a>
                 </div>
-                <div class="btn-group">
-                        <li><a href="<?php echo U('Admin/User/logout');?>">退出</a></li>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="<?php echo U('Admin/User/logout');?>">退出</a></li>
+                        </ul>
                 </div>
             </div>
         </nav>
@@ -51,6 +59,7 @@
 		  	<th>手机号</th>
 		  	<th>意向部门</th>
 		  	<th>介绍</th>
+		  	<th>操作</th>
 		</tr>
 		<?php if(is_array($apply)): foreach($apply as $key=>$vo): ?><tr>
 			<td><?php echo ($vo["name"]); ?></td>
@@ -60,6 +69,8 @@
 			<td><?php echo ($vo["tel"]); ?></td>
 			<td><?php echo ($vo["department"]); ?></td>
 			<td><a data-toggle="collapse" data-parent="#accordion" href="#<?php echo ($vo["uid"]); ?>">隐藏/显示</a></td>
+			<td><a href="<?php echo U('admin/apply/delete');?>?sn=<?php echo ($vo["uid"]); ?>">删除</a></td>
+
 		</tr>
 
 		<tr id="<?php echo ($vo["uid"]); ?>" class="panel-collapse collapse">
@@ -86,6 +97,21 @@
     <footer>
     </footer>
     <!-- /底部 -->
+    <script>
+        $(function(){
+            var url = window.location.href;
+            var a = $('#nav').find('a');
+            $.each(a, function(index, val) {
+                 /* iterate through array or object */
+                 if(val.href == url){
+                    $(val).parent().addClass('active');
+                 }
+                 else {
+                    $(val).parent().removeClass('active');
+                 }
+            });
+        })
+    </script>
 </body>
 
 </html>

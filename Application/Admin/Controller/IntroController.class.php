@@ -9,27 +9,27 @@ class IntroController extends CommonController {
     $this->display();
   }
 
-  public function add(){ //添加
-    if(IS_POST){
-      $data = array(
-        'department' => I('department'),
-        'intro' => I('intro')
-      );
-      $Add = M("intro");
-      if($Add->create($data)){
-        if($Add->add()){
-          $this->success('添加成功',U('Admin/Intro/intro'));
-        }else{
-          $this->error('添加失败',U('Admin/Intro/add'));
-        }
-      }else{
-        $this->error($Add->getError());
-      }
+  // public function add(){ //添加
+  //   if(IS_POST){
+  //     $data = array(
+  //       'department' => I('department'),
+  //       'intro' => I('intro')
+  //     );
+  //     $Add = M("intro");
+  //     if($Add->create($data)){
+  //       if($Add->add()){
+  //         $this->success('添加成功',U('Admin/Intro/intro'));
+  //       }else{
+  //         $this->error('添加失败',U('Admin/Intro/add'));
+  //       }
+  //     }else{
+  //       $this->error($Add->getError());
+  //     }
 
-    }else{
-      $this->display('Intro/edit');
-    }
-  }
+  //   }else{
+  //     $this->display('Intro/edit');
+  //   }
+  // }
 
   public function edit($id){ //更新
     if(IS_POST){
@@ -48,13 +48,13 @@ class IntroController extends CommonController {
     $this->display('Intro/edit');
   }
 
-  public function delete($id){ //删除
-    $delete = M("intro");
-    $where['id'] = $id;
-    $res = M("intro")->where($where)->delete();
-    if($res){
-      $this->success('删除成功',U('Admin/Intro/intro'));
-    }
-  }
+  // public function delete($id){ //删除
+  //   $delete = M("intro");
+  //   $where['id'] = $id;
+  //   $res = M("intro")->where($where)->delete();
+  //   if($res){
+  //     $this->success('删除成功',U('Admin/Intro/intro'),3);
+  //   }
+  // }
 
 }

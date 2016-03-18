@@ -29,10 +29,10 @@ class IndexController extends Controller {
         $Apply = D("Apply");
         if($Apply->create($data)){
             if($Apply->add())
-              $this->success('报名成功',U('Index/join'));
+              $this->success('报名成功',U('Index/join'),3);
               //echo "<script>alert('报名成功');</script>";
             else
-              $this->error('错误请重试',U('Index/join'));
+              $this->error('错误请重试',U('Index/join'),3);
          }else{
             $this->error($Apply->getError());
          }
@@ -46,7 +46,22 @@ class IndexController extends Controller {
     }
 
     public function news(){
-      $this->display('mobile/news/news');
+      $news = getNews();
+
+      $res = array();
+      foreach ($news as $key => $value) {
+        $value['year'] = date('Y', $value['ctime']);
+        $value['month'] = date('m', $value['ctime']);
+        $value['day'] = date('d', $value['ctime']);
+        array_push($res, $value);
+      }
+      $this->assign('news', $res);
+      if(isMobile()) {
+        $this->display('mobile/news/news');
+      } else {
+        $this->display('web/index');
+      }
+      
     }
 
     public function intro(){
@@ -64,46 +79,6 @@ class IndexController extends Controller {
           array_push($departList, $value);
         }
       }
-      // var_dump($departList);
-      // exit();
-      // $departList = array(
-      //     array(
-      //         'name'  => '行政部',
-      //         'child' => array()
-      //       ),
-      //     // array(
-      //     //     'name'  => '新闻采编部',
-      //     //     'child' => array()
-      //     //   ),
-      //     array(
-      //         'name'  => '产品部',
-      //         'child' => array()
-      //       ),
-      //     array(
-      //         'name'  => '技术部',
-      //         'child' => array(
-      //             array(
-      //                 'name'  => '设计组',
-      //                 'content'
-      //               ),
-      //             array(
-      //                 'name'  => '前端组'
-      //               ),
-      //             array(
-      //                 'name'  => '后台组'
-      //               ),
-      //             array(
-      //                 'name'  => '安卓组'
-      //               ),
-      //             array(
-      //                 'name'  => 'iOS组'
-      //               ),
-      //             array(
-      //                 'name'  => '运营组'
-      //               )
-      //           )
-      //       )
-      //   );
       $this->assign('departList', $departList);
       if(isMobile()){
          $this->display('mobile/intro/intro');
@@ -111,5 +86,6 @@ class IndexController extends Controller {
          $this->display('web/index');
       }
     }
+
 
 }

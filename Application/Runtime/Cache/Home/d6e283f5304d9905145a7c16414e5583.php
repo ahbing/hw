@@ -26,34 +26,23 @@
 
             
     <section class="news-box">
-        <a class="new-title" href="">这是新闻的标题</a>
+        <a class="new-title" href="<?php echo ($news["url"]); ?>"><?php echo ($news["title"]); ?></a>
         <div class="new-image">
-            <img src="/Public/mobile/images/hw-logo-big.png" alt="新闻标题">
+            <a href="<?php echo ($news["url"]); ?>">
+                <img src="/Public/mobile/images/hw-logo-big.png" alt="新闻标题">
+            </a>
         </div>
         <div class="new-time-line">
             <ul>
                 <!-- important span 标签不可换行 -->
-                <li><a href="#">01/<span class="month">12</span>
-					</a></li>
-                <li><a href="#">02/<span class="month">1</span>
-					</a></li>
-                <li><a href="#">03/<span class="month">12</span></a>
-                </li>
-                <li><a href="#">04/<span class="month">12</span>
-					</a></li>
-                <li><a href="#">05/<span class="month">12</span>
-					</a></li>
-                <li><a href="#">06/<span class="month">12</span>
-					</a></li>
-                <li><a href="#">07/<span class="month">12</span>
-					</a></li>
-                <li><a href="#">28/<span class="month">12</span>
-					</a></li>
-                <li><a href="#">28/<span class="month">12</span>
-					</a></li>
+                <?php if(is_array($news)): foreach($news as $key=>$vo): ?><li><a href="javascript:void(0);"><?php echo ($vo["day"]); ?>/<span class="month"><?php echo ($vo["month"]); ?></span>
+                        </a></li><?php endforeach; endif; ?>
             </ul>
         </div>
     </section>
+    <script>
+        
+    </script>
     <!--end intro main-->
 
         </article>

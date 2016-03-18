@@ -16,8 +16,8 @@
         <article class="wrapper left-out">
             
     <header>
-        <span class="more">
-            <div></div>
+        <span class="more fa fa-lg fa-bars">
+
         </span>
         <span class="h-title">JoinUs</span>
         <span class="h-logo"></span>
