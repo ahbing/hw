@@ -1,0 +1,32 @@
+<extend name="Base:common"/></extend>
+<block name="main">
+
+<div class="col-md-8">
+	<table class="table table-hover">
+		<tr>
+		  	<th>#</th>
+		  	<th>部门</th>
+		  	<th>介绍</th>
+		  	<th>操作</th>
+		</tr>
+	<foreach name="intro" item="vo" >
+		<tr>
+			<td>{$key+1}</td>
+			<td>{$vo.department}</td>
+			<td><a data-toggle="collapse" data-parent="#accordion" href="#{$vo.id}">隐藏/显示</a></td>
+			<td>
+				<a href="{:U('Admin/Intro/edit/id/'.$vo['id'])}" style="text-decoration:none"><span style="text-align:center;color:red">编辑</span></a>
+				<a href="{:U('Admin/Intro/delete/id/'.$vo['id'])}" style="text-decoration:none"><span style="text-align:center;color:red">删除</span></a>
+			</td>
+		</tr>
+		<tr id="{$vo.id}" class="panel-collapse collapse">
+			<td colspan="8" class="panel-body">{$vo.intro}</td>
+		</tr>
+
+	</foreach>
+	</table>
+	<a class="btn btn-success btn-lg btn-block" href="{:U('Admin/Intro/add')}" role="button">添加</a>
+</div>
+
+
+</block>

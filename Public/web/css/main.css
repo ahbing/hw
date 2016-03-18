@@ -1,0 +1,36 @@
+ *{margin: 0;padding: 0;}
+ body{overflow: hidden;position: relative;}
+ #container{position: absolute;width: 100%;top: 0;left: 0;}
+ .page{width: 100%;}
+
+ #firstPage{background: #fff;position: relative;}
+ #secondPage{background: pink;position: absolute;}
+ #thirdPage{background: blue;position: absolute;}
+ #fourthPage{background: purple;position: absolute;}
+ #nav{z-index: 100;width: 100%;border-bottom: 1px solid #C9C9C9;position: fixed;background: white;min-width: 700px;}
+
+/*第一页*/
+#HelloWorld{width: 400px;height: 200px;color: #C9C9C9;margin:0 auto;position: absolute;top: 200px;left: 35%;} 
+#HelloWorld>h1{text-indent: 25%;}
+#HelloWorld>h3{text-indent:40px;}
+#HelloWorld h4{display:block;float: left;margin-right: 10px; text-indent:30%;}
+#playVideo{height:22px;width:22px;cursor: pointer;}
+#video{position: absolute;width: 100%;display: none;z-index: 99;}
+#closeVideo{font-weight: bold;font-size: 15px;color:red;position:absolute;height: 15px;display: none;}
+#closeVideo:hover{cursor: default;color: pink;}
+
+ /*左上角的logo*/
+ #new{width: 220px;float: left;}
+ #b1{font-size: 20px;display: block;float: right; margin-top: 15px}
+ 
+ /*导航栏右上角*/
+ #navUl{float: right;list-style: none;}
+ #navUl>li{float: right;height:55px;line-height: 55px;margin-right: 40px;font-size: 20px;}
+ .b2{cursor: pointer;}
+ a{text-decoration: none;}
+
+/*控制翻页的点*/
+ #leftUl{position: fixed;top: 35%; left: 5%;list-style: none;width: 200px;z-index:50;}
+ #leftUl>li{background: #C9C9C9;width: 13px;height: 13px;border-radius: 100%;border:1px solid #C9C9C9;
+ 	margin-top: 15px;}
+ #leftUl>li:hover{border:1px solid black;}

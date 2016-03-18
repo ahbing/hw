@@ -1,0 +1,50 @@
+<extend name="Base/common" />
+<block name="main">
+
+<div class="col-md-8">
+	<table class="table table-bordered table-hover">
+		<tr>
+		  	<th>姓名</th>
+		  	<th>性别</th>
+		  	<th>院系</th>
+		  	<th>学号</th>
+		  	<th>手机号</th>
+		  	<th>意向部门</th>
+		  	<th>介绍</th>
+		</tr>
+		<foreach name="apply" item="vo">
+		<tr>
+			<td>{$vo.name}</td>
+			<td>{$vo.sex}</td>
+			<td>{$vo.college}</td>
+			<td>{$vo.number}</td>
+			<td>{$vo.tel}</td>
+			<td>{$vo.department}</td>
+			<td><a data-toggle="collapse" data-parent="#accordion" href="#{$vo.uid}">隐藏/显示</a></td>
+		</tr>
+
+		<tr id="{$vo.uid}" class="panel-collapse collapse">
+			<td colspan="8" class="panel-body">{$vo.intro}</td>
+		</tr>
+		</foreach>
+	</table>
+
+	<gt name="num" value="1">
+		<eq name="page" value="1">
+			第{$page}页
+			<a href="{:U('admin/registration/registration?page='.($page+1))}">下一页</a>
+		<else />
+			<eq name="num" value="$page">
+			<a href="{:U('admin/registration/registration?page='.($page-1))}">上一页</a>
+			第{$page}页
+			<else />
+			<a href="{:U('admin/registration/registration?page='.($page-1))}">上一页</a>
+			第{$page}页
+			<a href="{:U('admin/registration/registration?page='.($page+1))}">下一页</a>
+			</eq>
+		</eq>
+	</gt>
+
+</div>
+
+</block>

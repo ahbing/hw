@@ -1,0 +1,56 @@
+<extend name="mobile/base:common" />
+<block name="header">
+    <header>
+        <span class="more fa fa-lg fa-bars">
+
+        </span>
+        <span class="h-title">Introduction</span>
+        <span class="h-logo"></span>
+    </header>
+    <!-- end top header -->
+</block>
+<block name="main">
+    <section class="ball-box">
+        <foreach name="departList" item="vo">  
+             <if condition="!empty($vo['child'])"> 
+                <div class="big-ball big-ball-{$key+1}" id="technology">
+                    {$vo.department}
+                    <foreach name="vo.child" item="childvo">
+                        <div class="small-ball small-ball-{$key+1}" >
+                            <p class="small-ball-self-{$key+1}" data-id='{$childvo.id}'>{$childvo.department}</p>
+                        </div>
+                    </foreach>
+                </div>
+            <else/>
+                <div class="big-ball big-ball-{$key+1}" data-id='{$vo.id}'>
+                    {$vo.department}
+                </div>
+            </if>
+        </foreach>
+    </section>
+    <!--end ball box-->
+    <foreach name="departList" item="vo">        
+         <if condition="!empty($vo['child'])"> 
+                <foreach name="vo.child" item="childvo">
+                    <section class="intro-box intro-box-{$childvo.id} down-out">
+                        <p class="d-name">{$childvo.department}</p>
+                        <div class="intro-text">
+                            {$childvo.intro}
+                        </div>
+                        <p class="back">
+                        </p>
+                    </section>
+                </foreach>
+        <else/>
+            <section class="intro-box intro-box-{$vo.id} down-out">
+                <p class="d-name">{$vo.department}</p>
+                <div class="intro-text">
+                    {$childvo.intro}
+                </div>
+                <p class="back">
+                </p>
+            </section>
+        </if>    
+    </foreach>
+    <!--end intro box-->
+</block>

@@ -1,0 +1,31 @@
+<extend name="mobile/base:common" />
+<block name="header">
+    <header>
+        <span class="more fa fa-lg fa-bars">
+
+		</span>
+
+        <span class="h-title">Home</span>
+        <span class="h-logo"></span>
+    </header>
+    <!-- end top header -->
+</block>
+<block name="main">
+    <section class="index-box">
+        <img src="__PUBLIC__/mobile/images/hw-logo-normal.png" alt="logo">
+        <!--<p class="hw-title">HelloWorld</p>-->
+        <div class="hw-intro">
+            <p>Hack forward,until limitless.</p>
+            <p>life is but a tale,told by hacker.</p>
+        </div>
+        <p class="see-video">观看简介视频</p>
+    </section>
+</block>
+<block name="video">
+<article class="video-page">
+        <span class="close-video-btn">+</span>
+        <video data-src="{$video.url}" controls autoplay>
+            你的浏览器不支持html5 video，请使用chrome等标准浏览器。
+        </video>
+</article>
+</block>

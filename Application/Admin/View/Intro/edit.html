@@ -1,0 +1,39 @@
+<extend name="Base:common"/></extend>
+<block name="main">
+
+<div class="col-md-8">
+	<form method="post" name="form">
+	  <div class="form-group">
+	    <label for="title">部门</label>
+	    <input type="input" class="form-control" id="title" placeholder="{$intro.department}" value="{$intro.department}" name="department">
+	  </div>
+	  <div class="form-group">
+	    <label for="text">介绍</label>
+	    <textarea class="form-control" rows="10" id="text" name="intro">{$intro.intro}</textarea>
+	  </div>
+		<?php
+		if(isset($intro)){
+			echo '<button type="submit" class="btn btn-success btn-lg btn-block"  style="text-align:center;" name="update" onclick="update()">修改</button>';
+		}
+	  else{
+	  	echo '<button type="submit" class="btn btn-success btn-lg btn-block"  style="text-align:center;" name="add" onclick="add()">添加</button>';
+	  }
+	  ?>
+	</form>
+	<br>
+		<a class="btn btn-success btn-lg btn-block" href="{:U('admin/intro/intro')}" role="button">返回</a>
+</div>
+
+</block>
+
+<script type="text/javascript">
+function update()
+{
+document.form.action="{:U('Admin/Intro/edit/id/'.$intro['id'])}";
+}
+function add()
+{
+document.form.action="{:U('Admin/Intro/add'}";
+}
+
+</script>

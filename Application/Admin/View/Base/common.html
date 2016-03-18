@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>HelloWorld后台管理系统</title>
+    <meta charset="utf-8">
+    <script src="__PUBLIC__/Admin/js/jquery.min.js"></script>
+    <script src="__PUBLIC__/Admin/js/bootstrap.min.js"></script>
+    <link href="__PUBLIC__/Admin/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="__PUBLIC__/Admin/css/index.css">
+</head>
+
+<body>
+    <!-- 头部 -->
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{: U('admin/index/index')}">
+                        HelloWorld后台管理系统
+                    </a>
+                </div>
+                <div class="btn-group">
+                        <li><a href="{:U('Admin/User/logout')}">退出</a></li>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- /头部 -->
+    <!-- 主体 -->
+    <block name="header"></block>
+    <div class="row">
+        <div class="col-md-2">
+            <ul class="nav nav-pills nav-stacked" id="nav">
+                <li><a href="{:U('admin/news/newslist')}">新闻动态模块</a></li>
+                <li><a href="{:U('admin/apply/apply')}">报名数据模块</a></li>
+                <li><a href="{:U('admin/intro/intro')}">社团介绍模块</a></li>
+            </ul>
+        </div>
+        <div class="col-md-8">
+        </div>
+        <block name="main"></block>
+    </div>
+    <!-- /主体 -->
+    <!-- 底部 -->
+    <footer>
+    </footer>
+    <!-- /底部 -->
+</body>
+
+</html>
