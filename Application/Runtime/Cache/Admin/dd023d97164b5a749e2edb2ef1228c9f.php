@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-<script src="/hw/Public/Admin/js/jquery.min.js"></script>
-<script src="/hw/Public/Admin/js/bootstrap.min.js"></script>
-<link href="/hw/Public/Admin/css/bootstrap.min.css" rel="stylesheet">
+<script src="/Public/Admin/js/jquery.min.js"></script>
+<script src="/Public/Admin/js/bootstrap.min.js"></script>
+<link href="/Public/Admin/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="">
 </head>
 <style type="text/css">

@@ -4,10 +4,10 @@
 <head>
     <title>HelloWorld后台管理系统</title>
     <meta charset="utf-8">
-    <script src="/hw/Public/Admin/js/jquery.min.js"></script>
-    <script src="/hw/Public/Admin/js/bootstrap.min.js"></script>
-    <link href="/hw/Public/Admin/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/hw/Public/Admin/css/index.css">
+    <script src="/Public/Admin/js/jquery.min.js"></script>
+    <script src="/Public/Admin/js/bootstrap.min.js"></script>
+    <link href="/Public/Admin/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/Public/Admin/css/index.css">
 </head>
 
 <body>
