@@ -325,18 +325,16 @@ var cancelAniamtionFrame = window.cancelAniamtionFrame||  window.mozCancelAnimat
     /*
     展示部门详情页  有一个转场效果
      */
-     var showIntro = function(i){
-		var dom = container.querySelector('.intro-box-' + i);
+    var showIntro = function(i){
+		  var dom = container.querySelector('.intro-box-' + i);
      	// console.log('.intro-box-' + i);
-        replaceClass(dom,'down-out','down-in');
-     };
-     var hideIntro = function(){
-        for (var i = 0; i < introBox.length; i++) {
-        	
-        	replaceClass(introBox[i],'down-in','down-out');
-        }
-     };
-
+      replaceClass(dom,'down-out','down-in');
+    };
+    var hideIntro = function(){
+      for (var i = 0; i < introBox.length; i++) {
+        replaceClass(introBox[i],'down-in','down-out');
+      }
+    };
     /*
     stop all big move
      */
@@ -397,7 +395,7 @@ var cancelAniamtionFrame = window.cancelAniamtionFrame||  window.mozCancelAnimat
         stopBallMove();
         if(item && !item.id){
           //除技术部之外的部门 显示其详情
-			          
+
           showIntro(item.getAttribute('data-id'));
         }
       },false);
@@ -441,7 +439,7 @@ var cancelAniamtionFrame = window.cancelAniamtionFrame||  window.mozCancelAnimat
     	  ballMove(allBigBallArr);
     	},false)
     }
-    
+
   }
 })();
 
@@ -451,7 +449,11 @@ news
 ;(function(){
   var newsBox = document.querySelector('.news-box');
   if(newsBox){
+    var url = "http://115.28.169.229/hw/index.php/home/source/getNews";
+    var data = JSON.parse(fetchDate(url));
     var newsTimeLine = newsBox.querySelector('.new-time-line');
+    var newTitle = newsBox.querySelector('.new-title');
+    var newImg = newsBox.querySelector('img');
     var ulTimeLine = newsTimeLine.querySelector('ul');
     var newItme = ulTimeLine.querySelectorAll('li');
     var newItemA = ulTimeLine.querySelectorAll('a');
@@ -462,19 +464,28 @@ news
     // 动态设置ul长度
     var ulWidth = itemLen*itemLiWidth;
     ulTimeLine.style.width = ulWidth+'px';
+    /*
+    * activeOne 激活某个点对应的数据
+    * @param { Number } 某个点的索引
+    * @param { Object } 需要显示的数据
+    */
+    var activeOne = function(index, data) {
+        newItemA[index].classList.add('active');
+        newTitle.innerHTML = data[index].title;
+        newTitle.href = data[index].url;
+        newImg.src= data[index].img;
+    };
     //默认展示最后一个item 对应的数据
-    newItemA[newItemA.length-1].classList.add('active');
+    activeOne(itemLen-1, data);
     /*
     * checkActive检测active的item
     * @param{Number} 结束时的left值
      */
     var checkActive = function(endLeft){
       // 确定中间的选项被激活 添加 active class
-      if(itemLen<3&&endLeft>0){
-        newItemA[0].classList.add('active');
-      }else if(itemLen>=3&&endLeft<=0){
+      if(0 >= endLeft) {
         var index = Math.round(Math.abs(endLeft)/itemLiWidth+1);
-        newItemA[index].classList.add('active');
+        activeOne(index, data);
       }
     }
     newsTimeLine.addEventListener('touchstart',function(e){
@@ -491,27 +502,37 @@ news
       moveX = e.touches[0].clientX - startX;
     },false);
 
-
     newsTimeLine.addEventListener('touchend',function(e){
       e.stopPropagation(); // 禁止呼出侧边栏
-      var moveValue=0; // 已经move的值 初始为0
-      var startLeft = startLeft?startLeft:0;  // 初始的left值
+      var moveValue = 0; // 已经move的值 初始为0
+      var startLeft = 0;  // 初始的left值
       var endLeft = 0;  //检测结束时的 left值
       var speedX = moveX/50;
       var startMove = function(){
-        speedX?speedX =speedX*1.1 :  moveX/50// 初始速度
+        speedX = speedX*1.1; // 初始速度
         startLeft= ulTimeLine.offsetLeft;
         moveValue +=Math.abs(speedX);
-        if(moveX>0&&startLeft>=0){
+        // 已经是第一个了
+        if(startLeft == 0 && moveX >= 0 ) {
+          activeOne(0, data);
+          return cancelAnimationFrame(myAnimation);
+        }
+        if (moveX > 0 && startLeft > 0) {
           ulTimeLine.style.left=0;
           endLeft = ulTimeLine.offsetLeft;
           checkActive(endLeft);
           return cancelAnimationFrame(myAnimation);
         }
-        if(moveX<0&& -startLeft>=ulWidth-timeLineWidth){
+        // 最后一个
+        if(moveX < 0 && -startLeft == ulWidth-timeLineWidth){
+          var index = ulWidth/itemLiWidth;
+          activeOne(index-1, data);
+          return cancelAnimationFrame(myAnimation);
+        }
+
+        if(moveX < 0 && -startLeft > ulWidth-timeLineWidth){
           ulTimeLine.style.right = 0;
-          endLeft = ulTimeLine.offsetLeft;
-          checkActive(endLeft);
+          checkActive(-startLeft);
           return cancelAnimationFrame(myAnimation);
         }
         // 移动一定距离停止
@@ -522,7 +543,6 @@ news
           endLeft = -itemLiWidth*index;
           ulTimeLine.style.left = endLeft+'px';
           checkActive(endLeft);
-          console.log('========================');
           return cancelAnimationFrame(myAnimation)
         }
         ulTimeLine.style.left = startLeft+speedX+'px';
@@ -530,6 +550,5 @@ news
       }
       myAnimation = requestAnimationFrame(startMove)
     },false);
-
   }
 })();
