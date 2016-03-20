@@ -56,6 +56,12 @@ class IndexController extends Controller {
         array_push($res, $value);
       }
       $this->assign('news', $res);
+      echo '<pre>';
+
+      var_dump(json_encode($res));
+
+      echo '</pre>';
+      exit(0);
       if(isMobile()) {
         $this->display('mobile/news/news');
       } else {
