@@ -50,3 +50,29 @@
 
 	window.replaceClass = replaceClass;
 })();
+
+/*
+* fetchDate 通过调用 api 请求数据
+* @param { String } api 地址
+ */
+;(function (){
+	var fetchDate = function(url) {
+		var xhr = new XMLHttpRequest();
+		xhr.onreasystatechange = function() {
+			if(xhr.readyState == XMLHttpRequest.DONE) {
+				if(xhr.status == 200){
+					// handle callback
+					var response = JSON.parse(xhr.responseText)
+					return response;
+				}else{
+					// handle error
+					var err = "请求数据时发生了错误";
+					return console.log(err);
+				}
+			}
+		};
+		xhr.open('GET', url, true);
+		xhr.send(null);
+	};
+	window.fetchDate = fetchDate;
+})();
