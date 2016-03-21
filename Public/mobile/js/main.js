@@ -448,12 +448,13 @@ news
 ;(function(){
   var newsBox = document.querySelector('.news-box');
   if(newsBox){
-    var url = "http://localhost/home/source/getNews";
+    var url = "/home/source/getNews";
     
     /*不需要再次 JSON.parse()*/
     var data = fetchDate(url);
     var newsTimeLine = newsBox.querySelector('.new-time-line');
     var newTitle = newsBox.querySelector('.new-title');
+    var img = newsBox.querySelector('.new-image>a');
     var newImg = newsBox.querySelector('img');
     var ulTimeLine = newsTimeLine.querySelector('ul');
     var newItme = ulTimeLine.querySelectorAll('li');
@@ -476,6 +477,7 @@ news
         newItemA[index].classList.add('active');
         newTitle.innerHTML = data[index].title;
         newTitle.href = data[index].url;
+        img.href = data[index].url;
         newImg.src= data[index].img;
     };
     //默认展示最后一个item 对应的数据
