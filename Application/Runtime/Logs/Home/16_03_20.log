@@ -1,0 +1,21 @@
+[ 2016-03-20T23:16:27+08:00 ] ::1 /index/news.html
+ERR: SQLSTATE[HY000] [2002] Operation timed out
+
+[ 2016-03-20T23:16:57+08:00 ] ::1 /
+ERR: SQLSTATE[HY000] [2002] Operation timed out
+
+[ 2016-03-20T23:17:27+08:00 ] ::1 /index/news.html
+ERR: SQLSTATE[HY000] [2002] Operation timed out
+
+[ 2016-03-20T23:17:57+08:00 ] ::1 /
+ERR: SQLSTATE[HY000] [2002] Operation timed out
+
+[ 2016-03-20T23:18:27+08:00 ] ::1 /
+ERR: SQLSTATE[HY000] [2002] Operation timed out
+
+[ 2016-03-20T23:19:01+08:00 ] ::1 /
+ERR: SQLSTATE[HY000] [2002] Connection refused
+
+[ 2016-03-20T23:53:26+08:00 ] ::1 /index/undefined
+ERR: 非法操作:undefined
+
