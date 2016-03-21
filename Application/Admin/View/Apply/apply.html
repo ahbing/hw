@@ -11,6 +11,7 @@
 		  	<th>手机号</th>
 		  	<th>意向部门</th>
 		  	<th>介绍</th>
+		  	<th>操作</th>
 		</tr>
 		<foreach name="apply" item="vo">
 		<tr>
@@ -21,6 +22,8 @@
 			<td>{$vo.tel}</td>
 			<td>{$vo.department}</td>
 			<td><a data-toggle="collapse" data-parent="#accordion" href="#{$vo.uid}">隐藏/显示</a></td>
+			<td><a href="{:U('admin/apply/delete')}?sn={$vo.uid}">删除</a></td>
+
 		</tr>
 
 		<tr id="{$vo.uid}" class="panel-collapse collapse">

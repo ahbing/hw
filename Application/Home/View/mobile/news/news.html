@@ -11,33 +11,24 @@
 </block>
 <block name="main">
     <section class="news-box">
-        <a class="new-title" href="">这是新闻的标题</a>
+        <a class="new-title" href="{$news.url}">{$news.title}</a>
         <div class="new-image">
-            <img src="__PUBLIC__/mobile/images/hw-logo-big.png" alt="新闻标题">
+            <a href="{$news.url}">
+                <img src="__PUBLIC__/mobile/images/hw-logo-big.png" alt="新闻标题">
+            </a>
         </div>
         <div class="new-time-line">
             <ul>
                 <!-- important span 标签不可换行 -->
-                <li><a href="#">01/<span class="month">12</span>
-					</a></li>
-                <li><a href="#">02/<span class="month">1</span>
-					</a></li>
-                <li><a href="#">03/<span class="month">12</span></a>
-                </li>
-                <li><a href="#">04/<span class="month">12</span>
-					</a></li>
-                <li><a href="#">05/<span class="month">12</span>
-					</a></li>
-                <li><a href="#">06/<span class="month">12</span>
-					</a></li>
-                <li><a href="#">07/<span class="month">12</span>
-					</a></li>
-                <li><a href="#">28/<span class="month">12</span>
-					</a></li>
-                <li><a href="#">28/<span class="month">12</span>
-					</a></li>
+                <foreach name="news" item="vo">
+                    <li><a href="javascript:void(0);">{$vo.day}/<span class="month">{$vo.month}</span>
+                        </a></li>
+                </foreach>
             </ul>
         </div>
     </section>
+    <script>
+        
+    </script>
     <!--end intro main-->
 </block>

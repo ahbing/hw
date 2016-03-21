@@ -1,10 +1,17 @@
 <?php 
 
 function video() {
-	$DB_Video = M('video');
-	$result = $DB_Video->where(array(
+	$db_video = M('video');
+	$result = $db_video->where(array(
 			'usable' => 1
-		))->select();
+		))->limit(1)->select();
 
 	return $result[0];
+}
+
+function getNews() {
+	$db_news = M('news');
+	$result = $db_news->select();
+
+	return $result;
 }
