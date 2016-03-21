@@ -428,7 +428,6 @@ var cancelAniamtionFrame = window.cancelAniamtionFrame||  window.mozCancelAnimat
         }
       });
     },false)
-    console.log(backBtn instanceof Array,backBtn);
 
     for (var i = 0; i < backBtn.length; i++) {
     	backBtn[i].addEventListener('touchend',function(e){
@@ -449,8 +448,10 @@ news
 ;(function(){
   var newsBox = document.querySelector('.news-box');
   if(newsBox){
-    var url = "http://115.28.169.229/hw/index.php/home/source/getNews";
-    var data = JSON.parse(fetchDate(url));
+    var url = "http://localhost/home/source/getNews";
+    
+    /*不需要再次 JSON.parse()*/
+    var data = fetchDate(url);
     var newsTimeLine = newsBox.querySelector('.new-time-line');
     var newTitle = newsBox.querySelector('.new-title');
     var newImg = newsBox.querySelector('img');
@@ -458,6 +459,8 @@ news
     var newItme = ulTimeLine.querySelectorAll('li');
     var newItemA = ulTimeLine.querySelectorAll('a');
     var timeLineWidth = newsTimeLine.offsetWidth-4;  // 时间线的div宽度 减去border
+
+    /*没有赋初始值 throw error*/
     var itemLiWidth = newItme[0].offsetWidth; // 每一个li的长度
     var itemLen = newItme.length; //Li的个数
     var startX,moveX; //touch 初始值 和 移动值

@@ -56,14 +56,14 @@
 * @param { String } api 地址
  */
 ;(function (){
-	var fetchDate = function(url) {
+	function fetchDate (url,cb) {
 		var xhr = new XMLHttpRequest();
-		xhr.onreasystatechange = function() {
+		var response;
+		xhr.onreadystatechange = function() {
 			if(xhr.readyState == XMLHttpRequest.DONE) {
 				if(xhr.status == 200){
 					// handle callback
-					var response = JSON.parse(xhr.responseText)
-					return response;
+					 response = JSON.parse(xhr.responseText);
 				}else{
 					// handle error
 					var err = "请求数据时发生了错误";
@@ -71,8 +71,72 @@
 				}
 			}
 		};
-		xhr.open('GET', url, true);
+		/* true 异步 false 同步
+		*  采用返回值的话 必须同步
+		*  var data = fetchDate(url); // main.js line 439
+		*  so use false
+		*/
+		xhr.open('GET', url, false);
 		xhr.send(null);
+		return response;
 	};
 	window.fetchDate = fetchDate;
+
+
+	// 简单的封装
+	// function GetData(obj) {
+	// 	if(this instanceof GetData){
+	// 		this.type = obj.type || 'get',
+	// 		this.data = obj.data || null,
+	// 		this.url  = obj.url || '',
+	// 		this.sync = obj.sync || true,
+	// 		this.success = obj.success || function(res){
+	// 			console.log(res);
+	// 		},
+	// 		this.error = obj.error || function(err){
+	// 			console.log(err);
+	// 		};
+	// 		var that = this;
+	// 		var createXHR = function(){
+	// 			var xhr = new XMLHttpRequest();
+	// 			xhr.onreadystatechange = function(){
+	// 				if(xhr.readyState == XMLHttpRequest.DONE) {
+	// 					if(xhr.status == 200){
+	// 						// handle callback
+	// 						var res = JSON.parse(xhr.responseText);
+	// 						that.success(res);
+	// 					}else{
+	// 						// handle error
+	// 						var err = {
+	// 							status:xhr.status,
+	// 							statusText:xhrstatus
+	// 						};
+	// 						that.error(err);
+	// 					}
+	// 				}
+	// 			}
+	// 			xhr.open(that.type, that.url, that.sync);
+	// 			xhr.send(that.data)
+	// 		};
+
+	// 		createXHR();
+	// 	} else {
+	// 		return new GetData(obj);
+	// 	}
+	// }
+	// // demo
+	// var p =  GetData({
+	// 	type:'post',
+	// 	url:'http://localhost/home/source/getNews',
+	// 	data:{num:1},
+	// 	success:function(res){
+	// 		console.log(2222);
+	// 		console.log(res);
+	// 	},
+	// 	error: function(err){
+	// 		console.log(err);
+	// 	},
+	// 	async:false,
+	// });
+	
 })();
