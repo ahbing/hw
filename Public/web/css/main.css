@@ -1,24 +1,16 @@
  *{margin: 0;padding: 0;}
  body{overflow: hidden;position: relative;}
  #container{position: absolute;width: 100%;top: 0;left: 0;}
- .page{width: 100%;}
+ .page{width: 100%;height: 1000px;}
+ a{text-decoration: none;}
 
  #firstPage{background: #fff;position: relative;}
- #secondPage{background: pink;position: absolute;}
- #thirdPage{background: blue;position: absolute;}
- #fourthPage{background: purple;position: absolute;}
- #nav{z-index: 100;width: 100%;border-bottom: 1px solid #C9C9C9;position: fixed;background: white;min-width: 700px;}
+ #secondPage{background: pink;}
+ #thirdPage{background: #fff;}
+ #fourthPage{background: #fff;}
+ #nav{z-index: 10;width: 100%;border-bottom: 1px solid #C9C9C9;position: fixed;background: white;min-width: 700px;}
 
-/*第一页*/
-#HelloWorld{width: 400px;height: 200px;color: #C9C9C9;margin:0 auto;position: absolute;top: 200px;left: 35%;} 
-#HelloWorld>h1{text-indent: 25%;}
-#HelloWorld>h3{text-indent:40px;}
-#HelloWorld h4{display:block;float: left;margin-right: 10px; text-indent:30%;}
-#playVideo{height:22px;width:22px;cursor: pointer;}
-#video{position: absolute;width: 100%;display: none;z-index: 99;}
-#closeVideo{font-weight: bold;font-size: 15px;color:red;position:absolute;height: 15px;display: none;}
-#closeVideo:hover{cursor: default;color: pink;}
-
+/*导航栏*/
  /*左上角的logo*/
  #new{width: 220px;float: left;}
  #b1{font-size: 20px;display: block;float: right; margin-top: 15px}
@@ -27,10 +19,67 @@
  #navUl{float: right;list-style: none;}
  #navUl>li{float: right;height:55px;line-height: 55px;margin-right: 40px;font-size: 20px;}
  .b2{cursor: pointer;}
- a{text-decoration: none;}
-
-/*控制翻页的点*/
- #leftUl{position: fixed;top: 35%; left: 5%;list-style: none;width: 200px;z-index:50;}
+ 
+/*左边控制翻页的点*/
+ #leftUl{position: fixed;top: 35%; left: 5%;list-style: none;width: 200px;z-index:10;}
  #leftUl>li{background: #C9C9C9;width: 13px;height: 13px;border-radius: 100%;border:1px solid #C9C9C9;
  	margin-top: 15px;}
  #leftUl>li:hover{border:1px solid black;}
+
+/*下面翻页的点*/
+/* #next-page{height: 44px;width: 44px;border: 1px solid #5E646D;border-radius: 100%;position: fixed;left: 48%; 
+            bottom: 20px;}*/
+/*第一页Home*/
+#HelloWorld{width: 400px;height: 200px;color: #5E646D;position: absolute;top: 200px;left: 35%;} 
+#HelloWorld>h1{text-indent: 25%;}
+#HelloWorld>h3{text-indent:40px;}
+#HelloWorld h4{display:block;float: left;margin-right: 10px; text-indent:30%;}
+#playVideo{height:22px;width:22px;cursor: pointer;}
+
+#video{height: 100%;position: fixed;background: #191919;z-index: 11;display: none;}
+#closeVideo{font-weight: bold;font-size: 15px;color:#fff;position:fixed;top: 0px;right: 0px;height: 15px;z-index:12;display: none;}
+#closeVideo:hover{cursor: default;color: pink;}
+/*第二页introduce*/
+
+/*第三页news*/
+#newsArea{height: 300px;width: 500px;background: pink;margin:0 auto;overflow: hidden;}
+#newsArea div{height: 300px;width: 500px;}
+
+#newsLine{height: 100px;width: 800px;margin:0 auto;margin-top: 20px;position: relative;overflow: hidden;}
+#newsLast{font-size: 30px;font-weight: bold;position:absolute;top: 30px;cursor: pointer;z-index: 10;}
+#newsNext{font-size: 30px;font-weight: bold;position:absolute;top: 30px;left:765px;cursor: pointer;z-index: 10;}
+#newsLast:hover{font-size: 35px;}
+#newsNext:hover{font-size: 35px;}
+
+#newsTime{height: 80px;position: absolute;/*background: pink;*/margin: auto;top: 0;bottom: 0;left: 0;right: 0;list-style: none;overflow: hidden;}
+#newsTime li{height: 78px;width: 78px;float: left;border-radius: 100%; border: 1px solid black;position: absolute;line-height: 80px;text-align: center;cursor: default;}
+#newsTime li:first-child{left: 100px;}
+#newsTime li:nth-child(2){left: 360px;}
+#newsTime li:nth-child(3){left: 620px;}
+#newsTime li:nth-child(4){left: 900px;}
+#newsTime li:nth-child(5){left: 1160px;}
+#newsTime li:hover{height: 76px;width: 76px;border: 2px solid black;}
+/*第四页*/
+#formDiv{height: 400px;width: 550px;margin: 0 auto;font-weight: bold;font-size: 18px;position: relative;}
+
+.formLeft{position: absolute;left: 30px;}
+.formRight{position: absolute;left: 300px;}
+#formName{top: 20px;}
+#formSex{top: 20px;}
+#formPhone{top: 90px;}
+#formNumber{top: 90px;}
+#formAcademy{top: 170px;}
+#formMind{top: 170px;}
+#formIntro{top: 220px;}
+
+#formName input{height: 20px;width: 150px;}
+#formPhone input{height: 20px;width: 150px;}
+#formNumber input{height: 20px;width: 150px;}
+#formAcademy input{height: 20px;width: 150px;}
+#formMind select{ height: 25px;width: 100px;font-size: 15px;}
+#formIntro label{display: block;}
+#intro{height:100px;width:440px;position: absolute;left: 40px; }
+#formSubmit{position: absolute;top: 360px;left: 220px;width: 100px;height: 30px;background: #1597FA;}
+}
+ 
+
