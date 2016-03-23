@@ -9,7 +9,7 @@ return array(
   'DB_HOST'   => '115.28.169.229', // 服务器地址
   'DB_NAME'   => 'hw', // 数据库名
   'DB_USER'   => 'root', // 用户名
-  'DB_PWD'    => 'zhlt1234',  // 密码
+  'DB_PWD'    => 'ctyloading',  // 密码
   'DB_PORT'   => '3306', // 端口
   'DB_PREFIX' => 'hw_', // 数据库表前缀
 

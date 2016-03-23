@@ -50,8 +50,32 @@
     </div>
 
 <!--第二页-->
-  <div class='page' id="secondPage"><br><br><br><br>
-
+  <div class='page' id="secondPage">
+    <div id="introArea">
+       <div>欢迎来到hello world</div>
+       <div id="event1">前端</div>
+       <div id="event2">后台</div>
+       <div id="event3">ios</div>
+       <div id="event4">安卓</div>
+       <div id="event5">设计</div>
+       <div id="event6">行政</div>
+       <div id="event7">运营</div>
+    </div>
+    <div id="introType">
+      <div id="xingzheng"index="event6"><span>行政部</span></div>
+      <div id="jishu" alt="点击打开"><span>技术部</span></div>
+      <div id="yunying"index="event7"><span>运营部</span></div>
+    </div>
+    <div id="introTech">
+    <!--   <div id="introHide"></div> -->
+      <ul>
+        <li index="event1">前端</li>
+        <li class="juzhong"index="event2">后台</li>
+        <li class="juzhong"index="event3">ios</li>
+        <li class="juzhong"index="event4">安卓</li>
+        <li class="juzhong"index="event5">设计</li>
+      </ul>
+    </div>
   </div>
 
 <!--第三页-->  
@@ -62,7 +86,6 @@
        <div id="case3">3333333333</div>
        <div id="case4">4444444444</div>
        <div id="case5">5555555555</div>
-
      </div>
 
      <div id="newsLine">

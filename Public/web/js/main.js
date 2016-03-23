@@ -106,6 +106,41 @@ window.onload=function()
         oVideo.pause();
         $('#closeVideo').hide();
       })
+  //部门介绍界面
+    $('#jishu').bind('click',
+      function(){
+        var introLoc=$('#introTech').offset().left;
+       if(introLoc<clientWidth) 
+      {
+        $('#introTech').animate({
+          right: '-300px'
+        },'slow');
+      }
+      else
+      {
+        $('#introTech').animate({
+           right: '0px'
+        },'slow');
+      }
+      })
+    $('#introTech li').bind('mouseover',
+      function(){
+        var idli=$(this).attr('index');
+        $('#introArea div').hide();
+        $('#'+idli).show();
+      })
+    $('#xingzheng').bind('mouseover',
+      function(){
+        var xz=$(this).attr('index');
+        $('#introArea div').hide();
+        $('#'+xz).show();
+      })
+    $('#yunying').bind('mouseover',
+      function(){
+        var yy=$(this).attr('index');
+        $('#introArea div').hide();
+        $('#'+yy).show();
+      })
 
   //新闻页面timeline
      $('#newsTime>li').bind('click',
