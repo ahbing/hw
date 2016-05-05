@@ -63,7 +63,7 @@
     </div>
     <div id="introType">
       <div id="xingzheng"index="event6"><span>行政部</span></div>
-      <div id="jishu" alt="点击打开"><span>技术部</span></div>
+      <div id="jishu"><span>技术部</span></div>
       <div id="yunying"index="event7"><span>运营部</span></div>
     </div>
     <div id="introTech">
