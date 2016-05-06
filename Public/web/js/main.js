@@ -12,12 +12,16 @@ window.onload=function()
 
   // var oNav=document.getElementById('nav');
   var oClose=document.getElementById('closeVideo');
-
+  var NAV=document.getElementById('nav');
 
   var clientHeight=document.documentElement.clientHeight;
   var clientWidth=document.documentElement.clientWidth;
   // var navHeight=oNav.offsetHeight;
-  
+  var introType=document.getElementById('introType');
+  var introTech=document.getElementById('introTech');
+  introType.onselectstart = function(){return false;}
+  introTech.onselectstart = function(){return false;}
+  NAV.onselectstart = function(){return false;}
      $('.page').height(clientHeight);
     
      oCon.style.height=4*clientHeight+'px';
@@ -109,20 +113,26 @@ window.onload=function()
   //部门介绍界面
     $('#jishu').bind('click',
       function(){
-        var introLoc=$('#introTech').offset().left;
-       if(introLoc<clientWidth) 
+      var introLoc=$('#introTech').offset().left;
+       if(introLoc==730) 
       {
         $('#introTech').animate({
-          right: '-300px'
+          left: '880px'
         },'slow');
       }
       else
       {
         $('#introTech').animate({
-           right: '0px'
+           left: '730px'
         },'slow');
       }
+      
       })
+    $('#jishu').bind('mouseover',function(){
+      var js=$(this).attr('index');
+        $('#introArea div').hide();
+        $('#'+js).show();
+    })
     $('#introTech li').bind('mouseover',
       function(){
         var idli=$(this).attr('index');

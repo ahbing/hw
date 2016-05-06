@@ -42,23 +42,25 @@
 #closeVideo:hover{cursor: default;color: pink;}
 /*第二页introduce*/
 #introArea{height: 400px;width: 400px;border: 1px solid #000;position: absolute;left: 300px;top: 150px;}
-#introArea div{height: 400px;width: 400px;background: pink;display: none;}
+#introArea div{height: 400px;width: 399px;background: pink;display: none;word-break:break-all;}
 #introArea div:first-child{display: block;}
 
-#introType{height: 400px;width: 300px;border: 1px solid #000;position: absolute;left: 730px;top: 150px;font-weight: bold;cursor: default;}
+#introType{height: 400px;width: 300px;border: 1px solid #000;background: white;position: absolute;left: 730px;top: 150px;font-weight: bold;cursor: default;}
 #xingzheng{height: 80px;width: 80px;border-radius: 100%;border: 1px solid #000;
 	      margin: 0 auto;margin-top: 30px;line-height: 80px;text-align: center;}
-#jishu{height: 100px;width: 100px;border-radius: 100%;border: 3px solid #000;
+#jishu{height: 100px;width: 100px;border-radius: 100%;border: 2px solid #000;background: #C9C9C9;color: #fff;
 	      margin: 0 auto;margin-top: 40px;line-height: 100px;text-align: center;box-sizing: border-box;}
+#jishu:active{
+ border: 3px solid #000;
+}
 #yunying{height: 80px;width: 80px; border-radius: 100%;border: 1px solid #000;
 	      margin: 0 auto;margin-top: 40px;line-height: 80px;text-align: center;}
 #xingzheng:hover{background: #000;color: #fff;}
-#jishu:hover{border: 2px solid #000;background: }
 #yunying:hover{background: #000;color: #fff;}
 
-#introTech{height: 400px;width: 300px;background: orange; position: absolute;top: 150px;right: -300px;box-sizing: border-box;}
+#introTech{height: 400px;width: 300px;/*background: orange;*/ position: absolute;top: 150px;left: 730px;box-sizing: border-box;}
 #introTech li{height: 60px;width: 100px;border: 1px solid #000;
-	         margin-left: 50px;box-sizing: border-box;
+	         margin-left: 200px;box-sizing: border-box;
 	         font-weight: bold;text-align: center;line-height: 60px;cursor: default;}
 .juzhong{margin-top: 25px;}
 
