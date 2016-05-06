@@ -1,0 +1,35 @@
+<extend name="Base/common" />
+<block name="main">
+
+<div class="col-md-8">
+	<table class="table table-bordered table-hover">
+		<tr>
+		  	<th>姓名</th>
+		  	<th>性别</th>
+		  	<th>院系</th>
+		  	<th>学号</th>
+		  	<th>手机号</th>
+		  	<th>邮箱</th>
+		  	<th>意向部门</th>
+		  	<th>介绍</th>
+		</tr>
+		<foreach name="apply" item="vo">
+		<tr>
+			<td>{$vo.name}</td>
+			<td>{$vo.gender}</td>
+			<td>{$vo.major}</td>
+			<td>{$vo.number}</td>
+			<td>{$vo.mobile}</td>
+			<td>{$vo.email}</td>
+			<td>{$vo.department}</td>
+			<td><a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">隐藏/显示</a></td>
+		</tr>
+		
+		<tr id="collapseTwo" class="panel-collapse collapse">
+			<td colspan="8" class="panel-body">{$vo.info}</td>
+		</tr>
+		</foreach>
+	</table>
+</div>
+
+</block>

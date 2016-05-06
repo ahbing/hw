@@ -7,9 +7,14 @@ return array(
   /* 数据库配置 */
   'DB_TYPE'   => 'mysql', // 数据库类型
   'DB_HOST'   => '115.28.169.229', // 服务器地址
+  'DB_HOST'   => 'localhost', // 服务器地址
   'DB_NAME'   => 'hw', // 数据库名
   'DB_USER'   => 'root', // 用户名
+<<<<<<< HEAD
   'DB_PWD'    => 'ctyloading',  // 密码
+=======
+  'DB_PWD'    => '',  // 密码
+>>>>>>> 5b74f69c234669d01025dcb5691d06c882352a6b
   'DB_PORT'   => '3306', // 端口
   'DB_PREFIX' => 'hw_', // 数据库表前缀
 
