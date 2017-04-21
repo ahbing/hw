@@ -55,13 +55,12 @@ class IndexController extends Controller {
         $value['day'] = date('d', $value['ctime']);
         array_push($res, $value);
       }
-      $this->assign('news', $res);
+      $this->assign('news',$res);
       if(isMobile()) {
         $this->display('mobile/news/news');
       } else {
         $this->display('web/index');
       }
-      
     }
 
     public function intro(){

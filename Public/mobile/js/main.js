@@ -428,7 +428,6 @@ var cancelAniamtionFrame = window.cancelAniamtionFrame||  window.mozCancelAnimat
         }
       });
     },false)
-    console.log(backBtn instanceof Array,backBtn);
 
     for (var i = 0; i < backBtn.length; i++) {
     	backBtn[i].addEventListener('touchend',function(e){
@@ -449,15 +448,20 @@ news
 ;(function(){
   var newsBox = document.querySelector('.news-box');
   if(newsBox){
-    var url = "http://115.28.169.229/hw/index.php/home/source/getNews";
-    var data = JSON.parse(fetchDate(url));
+    var url = "/home/source/getNews";
+    
+    /*不需要再次 JSON.parse()*/
+    var data = fetchDate(url);
     var newsTimeLine = newsBox.querySelector('.new-time-line');
     var newTitle = newsBox.querySelector('.new-title');
+    var img = newsBox.querySelector('.new-image>a');
     var newImg = newsBox.querySelector('img');
     var ulTimeLine = newsTimeLine.querySelector('ul');
     var newItme = ulTimeLine.querySelectorAll('li');
     var newItemA = ulTimeLine.querySelectorAll('a');
     var timeLineWidth = newsTimeLine.offsetWidth-4;  // 时间线的div宽度 减去border
+
+    /*没有赋初始值 throw error*/
     var itemLiWidth = newItme[0].offsetWidth; // 每一个li的长度
     var itemLen = newItme.length; //Li的个数
     var startX,moveX; //touch 初始值 和 移动值
@@ -473,6 +477,7 @@ news
         newItemA[index].classList.add('active');
         newTitle.innerHTML = data[index].title;
         newTitle.href = data[index].url;
+        img.href = data[index].url;
         newImg.src= data[index].img;
     };
     //默认展示最后一个item 对应的数据
